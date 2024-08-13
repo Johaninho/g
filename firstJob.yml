@@ -1,0 +1,15 @@
+spec:
+  inputs:
+    textAfficher:
+      default: "This is my first job"
+    stage:
+      default: "build"
+    
+
+---
+first-job:
+  stage: $[[ inputs.stage]]
+  variables:
+    TEXT: $[[ inputs.textAfficher ]]
+  script:
+    - echo $TEXT

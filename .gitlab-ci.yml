@@ -1,0 +1,11 @@
+stages:
+  - build
+  - deploy
+
+include:
+  - component: $CI_SERVER_FQDN/$CI_PROJECT_PATH/firstJob@$CI_COMMIT_SHA
+    inputs:
+      textAfficher: "This is my first component"
+  - component: $CI_SERVER_FQDN/$CI_PROJECT_PATH/secondJob@$CI_COMMIT_SHA
+    inputs:
+      textEcho: "This is my second component from the CI project"

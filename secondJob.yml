@@ -1,0 +1,18 @@
+spec:
+  inputs:
+    textEcho: 
+      default: "This is default text for second job"
+    stage:
+      default: "build"
+  
+---
+.affichage_extend:
+  variables:
+    VAR1: ""
+  script: echo $VAR1
+
+second-job:
+  extends: .affichage_extend
+  stage: $[[ inputs.stage ]]
+  variables:
+    VAR1: $[[ inputs.textEcho ]]
